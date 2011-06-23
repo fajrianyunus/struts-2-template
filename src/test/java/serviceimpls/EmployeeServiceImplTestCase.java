@@ -52,8 +52,8 @@ public class EmployeeServiceImplTestCase {
 	@Test
 	public void testBeforeEachTest() {
 		log.debug("testing the method which is executed before each test is working");
-		Long count = employeeService.countAll();
-		assertEquals(new Long(0), count);
+		Integer count = employeeService.countAll();
+		assertEquals(new Integer(0), count);
 	}
 	
 	@Test
@@ -72,13 +72,13 @@ public class EmployeeServiceImplTestCase {
 		empl2.setRemarks("<h1 style='color : red;'>comedian</h1>");
 		employeeService.save(empl2);
 		
-		Long count = employeeService.countAll();
+		Integer count = employeeService.countAll();
 		assertTrue("there is employee", count > 0);
 		
 		employeeService.deleteAll();
 		
-		Long countAfterDeletion = employeeService.countAll();
-		assertEquals(new Long(0), countAfterDeletion);
+		Integer countAfterDeletion = employeeService.countAll();
+		assertEquals(new Integer(0), countAfterDeletion);
 	}
 	
 	@Test
@@ -222,7 +222,7 @@ public class EmployeeServiceImplTestCase {
 		log.debug("testing counting all capability");
 		
 		Employee empl[] = new Employee[2];
-		Long count[] = new Long[2];
+		Integer count[] = new Integer[2];
 		
 		empl[0] = new Employee();
 		empl[0].setFullName("phua chu kang");

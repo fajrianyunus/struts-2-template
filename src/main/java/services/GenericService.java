@@ -8,5 +8,5 @@ public interface GenericService<entityClass, idClass> {
 	public void save(entityClass entity);
 	public void removeById(idClass id);
 	public entityClass find(idClass id);
-	public Long countAll();
+	public Integer countAll();
 }

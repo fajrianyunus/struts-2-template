@@ -14,7 +14,7 @@ public class ListAction extends EmployeeController {
 	private static final long serialVersionUID = -4603707956919125324L;
 	private EmployeeService employeeService;
 	private List<Employee> employees;
-	private Long employeeCount;
+	private Integer employeeCount;
 	
 	@Override
 	public void prepare() {
@@ -36,7 +36,7 @@ public class ListAction extends EmployeeController {
 		return employees;
 	}
 
-	public Long getEmployeeCount() {
+	public Integer getEmployeeCount() {
 		return employeeCount;
 	}
 }

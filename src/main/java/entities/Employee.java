@@ -14,7 +14,7 @@ import lib.RandomAlphaNumericStringGenerator;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
+@Entity(name="EmployeeTable")
 public class Employee {
 	@Id
 	@GeneratedValue(generator="increment")

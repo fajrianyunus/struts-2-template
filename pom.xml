@@ -186,12 +186,16 @@
 			<artifactId>hibernate-spatial-postgis</artifactId>
 			<version>1.0</version>
 		</dependency>		
-        <dependency>
-        	<groupId>org.hibernate</groupId>
-        	<artifactId>ejb3-persistence</artifactId>
-        	<version>3.3.2.Beta1</version>
-        	<type>pom</type>
-        </dependency>		        
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>ejb3-persistence</artifactId>
+		    <version>1.0.2.GA</version>
+		</dependency>	
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1</version>
+		</dependency>	        	        
     </dependencies>
 
 	<repositories>

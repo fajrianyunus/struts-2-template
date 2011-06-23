@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 
+import lib.GetTableNameFromEntity;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
@@ -40,7 +42,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	public void deleteAll() {
 		em.getTransaction().begin();
-		em.createQuery("DELETE FROM Employee").executeUpdate();
+		String tableName = GetTableNameFromEntity.getTableName(Employee.class);
+		StringBuffer jpqlBuffer = new StringBuffer("DELETE FROM ");
+		jpqlBuffer.append(tableName);
+		em.createQuery(jpqlBuffer.toString()).executeUpdate();
 		em.getTransaction().commit();
 	}
 
@@ -111,12 +116,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Long countAll() {
+	public Integer countAll() {
 		Session session = hem.getSession();
 		Criteria crit = session.createCriteria(Employee.class);
 		session.getTransaction().begin();
-		Integer resultInt = (Integer) crit.setProjection(Projections.rowCount()).uniqueResult();
-		Long result = resultInt.longValue();
+		Integer result = (Integer) crit.setProjection(Projections.rowCount()).uniqueResult();
 		session.getTransaction().commit();
 		
 //		em.getTransaction().begin();
